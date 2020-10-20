@@ -1689,10 +1689,10 @@
     reset-css "^5.0.1"
     rollup-plugin-babel "^4.4.0"
 
-"@imploy/common-themes@1.0.1":
-  version "1.0.1"
-  resolved "https://npm.pkg.github.com/download/@imploy/common-themes/1.0.1/1e7c972679596255a51da0140653065d8fc5ad0c71de749cb53ed52996cf7445#2450d60322ea7a9380485beb03a3ce78d1b6694f"
-  integrity sha512-mnFvrhNA0AF+RQZV4hjzFxNTBSWd9MEhuGEiQ3xEA6SypcGgI5Q3UwPavTMWVoF2U+KPKdBtixKMK5FeBq3Ysw==
+"@imploy/common-themes@1.0.2":
+  version "1.0.2"
+  resolved "https://npm.pkg.github.com/download/@imploy/common-themes/1.0.2/7d08c4c2c014b4135492296c0eda76fbbcab7b9ba4b990eb294ab0a7d4666bef#70684c60b8d0da9f35e8b31ca3105db5545242fb"
+  integrity sha512-EACzXpt5sKsGUuEx8L+pr+dRt4zMWI+pHo/SeoB09RrJByYaA2QPp1lsfRX7KcmkRmr0ThqgB77mUr9XrxYF9w==
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"

@@ -253,7 +253,6 @@ const MainPage = () => {
       })
       .test("Min", "Less than minimum", (value) => {
         if (value) {
-          console.error(value);
           return parseFloat(value) > 0;
         }
         return false;

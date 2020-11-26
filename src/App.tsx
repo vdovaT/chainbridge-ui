@@ -13,6 +13,7 @@ import { ChainbridgeProvider } from "./Contexts/ChainbridgeContext";
 import AppWrapper from "./Layouts/AppWrapper";
 import { Web3Provider } from "@chainsafe/web3-context";
 import { chainbridgeConfig } from "./chainbridgeConfig";
+import { utils } from "ethers";
 
 if (
   process.env.NODE_ENV === "production" &&
@@ -26,7 +27,6 @@ if (
 }
 
 const App: React.FC<{}> = () => {
-  const networks = chainbridgeConfig.chains.map((bc) => bc.networkId);
   const tokens = chainbridgeConfig.chains.reduce((tca, bc) => {
     return {
       ...tca,
@@ -57,15 +57,15 @@ const App: React.FC<{}> = () => {
         <CssBaseline />
         <ToasterProvider autoDismiss>
           <Web3Provider
-            networkIds={networks}
             tokensToWatch={tokens}
             onboardConfig={{
-              walletCheck: [
-                { checkName: "accounts" },
-                { checkName: "connect" },
-              ],
               walletSelect: {
                 wallets: [{ walletName: "metamask", preferred: true }],
+              },
+              subscriptions: {
+                network: (network) => console.log("chainId: ", network),
+                balance: (amount) =>
+                  console.log("balance: ", utils.formatEther(amount)),
               },
             }}
             checkNetwork={false}

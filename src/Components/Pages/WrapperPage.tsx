@@ -28,6 +28,7 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       padding: constants.generalUnit * 6,
       overflow: "hidden",
       position: "relative",
+      width: "100%",
     },
     walletArea: {
       display: "flex",
@@ -63,7 +64,6 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       padding: `${constants.generalUnit * 2}px ${
         constants.generalUnit * 1.5
       }px`,
-      border: `1px solid ${palette.additional["gray"][6]}`,
       borderRadius: 2,
       color: palette.additional["gray"][9],
       marginTop: constants.generalUnit,
@@ -107,20 +107,19 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       borderBottomLeftRadius: 0,
       borderTopLeftRadius: 0,
       left: -1,
-      color: palette.additional["gray"][8],
-      backgroundColor: palette.additional["gray"][3],
-      borderColor: palette.additional["gray"][6],
+      color: MOONBEAM_CYAN,
+      backgroundColor: "#fff",
+      borderColor: MOONBEAM_CYAN,
       "&:hover": {
-        borderColor: palette.additional["gray"][6],
-        backgroundColor: palette.additional["gray"][7],
-        color: palette.common.white.main,
+        backgroundColor: MOONBEAM_CYAN,
+        color: "#fff",
       },
       "&:focus": {
         borderColor: palette.additional["gray"][6],
       },
     },
     tokenIndicator: {
-      width: 120,
+      width: "45%",
       textAlign: "right",
       "& p": {
         marginBottom: constants.generalUnit,
@@ -138,8 +137,8 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       marginTop: constants.generalUnit * 5,
       "& > i": {
         color: `${MOONBEAM_CYAN} !important`,
-        cursor: "pointer"
-      }
+        cursor: "pointer",
+      },
     },
     token: {
       backgroundColor: palette.additional["gray"][1],
@@ -363,18 +362,18 @@ const MainPage = () => {
         ) : (
           <section className={classes.connected}>
             <div>
-              <Typography variant="body1">Home network</Typography>
-              <Typography
+              <Typography variant="body1">Home Network</Typography>
+              <Button
                 className={classes.changeButton}
-                variant="body1"
+                variant="outline"
                 onClick={() => setChangeNetworkOpen(true)}
               >
                 Change
-              </Typography>
+              </Button>
             </div>
             <Typography
-              component="h2"
-              variant="h2"
+              component="h3"
+              variant="h3"
               className={classes.networkName}
             >
               {homeChain?.name}
@@ -457,12 +456,20 @@ const MainPage = () => {
             </section>
           </section>
           <section className={classes.submitButtonArea}>
-            <Button type="submit" fullsize variant="primary">
+            <Button
+              type="submit"
+              fullsize
+              variant="primary"
+              disabled={!isReady}
+            >
               {action === "wrap" ? "Wrap Token" : "Unwrap token"}
             </Button>
           </section>
           <section className={classes.faqButton}>
-            <i className="far fa-question-circle fa-2x" onClick={() => setAboutOpen(true)} />
+            <i
+              className="far fa-question-circle fa-2x"
+              onClick={() => setAboutOpen(true)}
+            />
           </section>
         </Form>
       </Formik>

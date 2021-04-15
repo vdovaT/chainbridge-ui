@@ -301,7 +301,7 @@ const TransferPage = () => {
               handleConnect();
             }}
           >
-            Connect Metamask
+            Connect MetaMask
           </Button>
         ) : walletConnecting ? (
           <section className={classes.connecting}>

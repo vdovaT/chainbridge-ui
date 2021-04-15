@@ -349,7 +349,7 @@ const MainPage = () => {
                 handleConnect();
               }}
             >
-              Connect Metamask
+              Connect MetaMask
             </Button>
           </>
         ) : walletConnecting ? (

@@ -1,9 +1,13 @@
 import { createTheme } from "@chainsafe/common-theme";
 
+export const MOONBEAM_PINK = "#E1147B";
+export const MOONBEAM_PURPLE = "#3D1D5A";
+export const MOONBEAM_CYAN = "#53CBC9";
+
 export const lightTheme = createTheme({
   globalStyling: {
     body: {
-      backgroundColor: "#F5F5F5",
+      backgroundColor: "#FFFFFF",
     },
   },
   themeConfig: {
@@ -12,25 +16,19 @@ export const lightTheme = createTheme({
     },
     palette: {
       additional: {
-        general: {
-          1: "#85A5FF", // Accents //geekblue4
-        },
         transferUi: {
           1: "#595959", // FAQ button // gray8
         },
         header: {
-          1: "#F5F5F5", // Background
-          2: "#595959", // Text color //gray8
-          3: "#BFBFBF", // border // gray6
+          1: "#595959", // Text color //gray8
         },
         preflight: {
-          1: "#85A5FF", // Button bg color
-          2: "#262626", // Button color
+          1: MOONBEAM_PINK, // Button bg color
+          2: "#595959", // Button color
         },
         transactionModal: {
-          1: "#597EF7", // border //geekblue5
-          2: "#85A5FF", // indicator border //geekblue4
-          3: "#2F54EB", // indicator text //geekblue6
+          1: MOONBEAM_PINK, // border //geekblue5
+          2: MOONBEAM_CYAN, // button
         },
       },
     },
@@ -39,48 +37,117 @@ export const lightTheme = createTheme({
         root: {
           alignItems: "center",
         },
+        label: {
+          fontSize: "14px",
+        },
+      },
+      Typography: {
+        root: {
+          fontFamily: "'Open Sans', sans-serif !important",
+        },
+        body1: {
+          fontSize: "16px",
+        },
+      },
+      SelectInput: {
+        root: {
+          fontSize: "16px",
+        },
+        label: {
+          fontSize: "16px",
+        },
+        valueContainer: {
+          fontSize: "14px", // Placeholder text
+        },
+        option: {
+          fontSize: "14px",
+        },
+        singleValue: {
+          fontSize: "14px",
+        },
+      },
+      TextInput: {
+        root: {
+          fontSize: "14px",
+        },
+        label: {
+          fontSize: "16px",
+        },
+        input: {
+          root: {
+            fontSize: "14px !important",
+          },
+        },
       },
       Button: {
         variants: {
           primary: {
             root: {
-              backgroundColor: "#262626",
+              backgroundColor: MOONBEAM_CYAN,
               color: "#ffffff",
-              border: `1px solid #262626`,
+              border: `1px solid ${MOONBEAM_CYAN}`,
               "& svg": {
-                fill: "#ffffff",
+                fill: MOONBEAM_CYAN,
+              },
+              borderRadius: 50,
+              transition:
+                "box-shadow 300ms ease-in-out, color 300ms ease-in-out",
+              boxShadow: `1px 1px 2px ${MOONBEAM_CYAN}`,
+              height: "5vh",
+              fontSize: "16px",
+              width: "50% !important",
+              "&:disabled": {
+                boxShadow: "none",
               },
             },
             active: {
-              backgroundColor: "#ffffff",
-              color: "#262626",
+              backgroundColor: "transparent",
+              color: MOONBEAM_CYAN,
+              borderColor: MOONBEAM_CYAN,
               "& svg": {
-                fill: "#262626",
+                fill: "#ffffff",
+              },
+              boxShadow: `0 0 40px 40px #ffffff inset`,
+              "&:disabled": {
+                boxShadow: "none",
               },
             },
             hover: {
-              backgroundColor: "#ffffff",
-              color: "#262626",
+              backgroundColor: "transparent",
+              color: MOONBEAM_CYAN,
+              borderColor: MOONBEAM_CYAN,
               "& svg": {
-                fill: "#262626",
+                fill: "#ffffff",
+              },
+              boxShadow: `0 0 40px 40px #ffffff inset`,
+              "&:disabled": {
+                boxShadow: "none",
               },
             },
             focus: {
-              backgroundColor: "#ffffff",
-              color: "#262626",
+              backgroundColor: "transparent",
+              color: MOONBEAM_CYAN,
+              borderColor: MOONBEAM_CYAN,
               "& svg": {
-                fill: "#262626",
+                fill: "#ffffff",
+              },
+              boxShadow: "0 0 40px 40px #ffffff inset",
+              "&:disabled": {
+                boxShadow: "none",
               },
             },
           },
           outline: {
             root: {
               backgroundColor: "transparent",
-              color: "#ffffff",
-              border: `1px solid #ffffff`,
+              color: MOONBEAM_CYAN,
+              border: `1px solid ${MOONBEAM_CYAN}`,
               "& svg": {
                 fill: "#ffffff",
               },
+              borderRadius: 50,
+              transition:
+                "box-shadow 300ms ease-in-out, color 300ms ease-in-out",
             },
             active: {
               backgroundColor: "#ffffff",
@@ -91,19 +158,19 @@ export const lightTheme = createTheme({
               },
             },
             hover: {
-              backgroundColor: "#ffffff",
-              color: "#262626",
-              borderColor: "#ffffff",
+              backgroundColor: MOONBEAM_CYAN,
+              color: "#ffffff",
+              borderColor: "transparent",
               "& svg": {
-                fill: "#262626",
+                fill: MOONBEAM_CYAN,
               },
             },
             focus: {
-              backgroundColor: "#ffffff",
-              color: "#262626",
-              borderColor: "#ffffff",
+              backgroundColor: MOONBEAM_CYAN,
+              color: "#ffffff",
+              borderColor: "transparent",
               "& svg": {
-                fill: "#262626",
+                fill: MOONBEAM_CYAN,
               },
             },
           },

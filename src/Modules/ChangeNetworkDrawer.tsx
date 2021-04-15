@@ -21,6 +21,9 @@ const useStyles = makeStyles(({ constants }: ITheme) =>
     paragraph: {
       margin: `${constants.generalUnit * 3}px 0`,
     },
+    header: {
+      marginTop: "2em",
+    },
   })
 );
 
@@ -44,7 +47,7 @@ const ChangeNetworkDrawer: React.FC<IChangeNetworkDrawerProps> = ({
 
   return (
     <CustomDrawer open={open} className={classes.root}>
-      <Typography variant="h3" component="h2">
+      <Typography variant="h3" component="h2" className={classes.header}>
         Changing Networks
       </Typography>
       <Typography className={classes.paragraph} component="p" variant="h5">

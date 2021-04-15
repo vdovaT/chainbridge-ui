@@ -11,6 +11,9 @@ const useStyles = makeStyles(({ constants }: ITheme) =>
       flexDirection: "column",
       justifyContent: "space-between",
     },
+    header: {
+      marginTop: "1.5em",
+    },
     buttons: {
       display: "flex",
       flexDirection: "row",
@@ -36,7 +39,7 @@ const AboutDrawer: React.FC<IAboutDrawerProps> = ({
 
   return (
     <CustomDrawer onClose={close} open={open} className={classes.root}>
-      <Typography variant="h1" component="h4">
+      <Typography variant="h1" component="h4" className={classes.header}>
         What is ChainBridge?
       </Typography>
       <Typography component="p" variant="h5">

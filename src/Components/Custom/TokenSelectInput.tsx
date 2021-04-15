@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useField } from "formik";
+import React from "react";
 import {
   IFormikSelectInputProps,
   FormikSelectInput,
@@ -13,36 +12,11 @@ interface ITokenSelectInput extends IFormikSelectInputProps {
 
 const TokenSelectInput: React.FC<ITokenSelectInput> = ({
   className,
-  label,
   name,
   tokens,
-  sync,
   ...rest
 }: ITokenSelectInput) => {
-  const [field] = useField(name);
-  const labelParsed = tokens[field.value]
-    ? `${label} ${tokens[field.value]?.balance} ${tokens[field.value]?.symbol}`
-    : "Please select token";
-
-  const [synced, setSynced] = useState();
-  useEffect(() => {
-    if (sync && field.value !== synced) {
-      setSynced(field.value);
-      if (field.value !== "") {
-        sync(field.value);
-      }
-    }
-    // eslint-disable-next-line
-  }, [field]);
-
-  return (
-    <FormikSelectInput
-      name={name}
-      className={className}
-      label={labelParsed}
-      {...rest}
-    />
-  );
+  return <FormikSelectInput name={name} className={className} {...rest} />;
 };
 
 export default TokenSelectInput;

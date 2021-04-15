@@ -17,6 +17,7 @@ import { object, string } from "yup";
 import { utils } from "ethers";
 import { chainbridgeConfig } from "../../chainbridgeConfig";
 import FeesFormikWrapped from "./FormikContextElements/Fees";
+import Balance from "../Custom/Balance";
 import { MOONBEAM_CYAN } from "../../Themes/LightTheme";
 
 const useStyles = makeStyles(({ constants, palette }: ITheme) =>
@@ -168,6 +169,11 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
           textAlign: "right",
         },
       },
+    },
+    balanceSection: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
     },
   })
 );
@@ -357,6 +363,48 @@ const TransferPage = () => {
             />
           </section>
           <section className={classes.currencySection}>
+            <section className={classes.currencySelector}>
+              <TokenSelectInput
+                tokens={tokens}
+                name="token"
+                label="Token"
+                disabled={!destinationChain}
+                className={classes.generalInput}
+                placeholder=""
+                options={
+                  Object.keys(tokens).map((t) => ({
+                    value: t,
+                    label: (
+                      <div className={classes.tokenItem}>
+                        {tokens[t]?.imageUri && (
+                          <img
+                            src={tokens[t]?.imageUri}
+                            alt={tokens[t]?.symbol}
+                          />
+                        )}
+                        <span>{tokens[t]?.symbol || t}</span>
+                      </div>
+                    ),
+                  })) || []
+                }
+              />
+            </section>
+            <section className={classes.balanceSection}>
+              <Balance
+                tokens={tokens}
+                sync={(tokenAddress: string) => {
+                  setPreflightDetails({
+                    ...preflightDetails,
+                    token: tokenAddress,
+                    receiver: "",
+                    tokenAmount: 0,
+                    tokenSymbol: "",
+                  });
+                }}
+              />
+            </section>
+          </section>
+          <section className={classes.currencySection}>
             <section>
               <div
                 className={clsx(classes.tokenInputArea, classes.generalInput)}
@@ -378,41 +426,6 @@ const TransferPage = () => {
                 />
               </div>
             </section>
-            <section className={classes.currencySelector}>
-              <TokenSelectInput
-                tokens={tokens}
-                name="token"
-                disabled={!destinationChain}
-                label={`Balance: `}
-                className={classes.generalInput}
-                placeholder=""
-                sync={(tokenAddress) => {
-                  setPreflightDetails({
-                    ...preflightDetails,
-                    token: tokenAddress,
-                    receiver: "",
-                    tokenAmount: 0,
-                    tokenSymbol: "",
-                  });
-                }}
-                options={
-                  Object.keys(tokens).map((t) => ({
-                    value: t,
-                    label: (
-                      <div className={classes.tokenItem}>
-                        {tokens[t]?.imageUri && (
-                          <img
-                            src={tokens[t]?.imageUri}
-                            alt={tokens[t]?.symbol}
-                          />
-                        )}
-                        <span>{tokens[t]?.symbol || t}</span>
-                      </div>
-                    ),
-                  })) || []
-                }
-              />
-            </section>
           </section>
           <section>
             <AddressInput
@@ -421,9 +434,6 @@ const TransferPage = () => {
               label="Destination Address"
               placeholder="Please enter the receiving address"
               className={classes.address}
-              classNames={{
-                input: classes.addressInput,
-              }}
               senderAddress={`${address}`}
             />
           </section>

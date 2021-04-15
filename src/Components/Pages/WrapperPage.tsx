@@ -343,10 +343,6 @@ const MainPage = () => {
       .required("Please set a value"),
   });
 
-  const networks = chainbridgeConfig.chains
-    .filter((bc) => bc.tokens.find((t) => t.isNativeWrappedToken))
-    .map((bc) => bc.networkId);
-
   return (
     <article className={classes.root}>
       <div className={classes.walletArea}>

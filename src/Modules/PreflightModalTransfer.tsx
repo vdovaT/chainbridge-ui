@@ -18,7 +18,7 @@ const useStyles = makeStyles(({ constants, palette, zIndex }: ITheme) =>
         "&:before": {
           content: "''",
           display: "block",
-          backgroundColor: palette.additional["gray"][2],
+          backgroundColor: palette.additional["preflight"][1],
           height: constants.generalUnit,
           width: constants.generalUnit,
           borderRadius: "50%",
@@ -36,8 +36,6 @@ const useStyles = makeStyles(({ constants, palette, zIndex }: ITheme) =>
       margin: `${constants.generalUnit * 2}px 0`,
     },
     startButton: {
-      backgroundColor: palette.additional["preflight"][1],
-      color: palette.additional["preflight"][2],
       marginBottom: constants.generalUnit * 2,
     },
     backdrop: {
@@ -120,10 +118,17 @@ const PreflightModalTransfer: React.FC<IPreflightModalTransferProps> = ({
         <strong>{shortenAddress(receiver)}</strong> on{" "}
         <strong>{targetNetwork}</strong>.
       </Typography>
-      <Button onClick={start} className={classes.startButton} fullsize>
+      <Button
+        onClick={start}
+        fullsize
+        variant="primary"
+        className={classes.startButton}
+      >
         Start Transfer
       </Button>
-      <Button onClick={close}>Back</Button>
+      <Button variant="outline" onClick={close}>
+        Back
+      </Button>
     </CustomDrawer>
   );
 };

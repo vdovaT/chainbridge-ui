@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ constants, palette, zIndex }: ITheme) =>
         "&:before": {
           content: "''",
           display: "block",
-          backgroundColor: palette.additional["gray"][2],
+          backgroundColor: palette.additional["preflight"][1],
           height: constants.generalUnit,
           width: constants.generalUnit,
           borderRadius: "50%",
@@ -116,10 +116,17 @@ const PreflightModalWrap: React.FC<IPreflightModalWrapProps> = ({
         on <strong>{sourceNetwork}</strong> to&nbsp;
         <strong>{wrappedTitle}</strong>
       </Typography>
-      <Button onClick={start} className={classes.startButton} fullsize>
+      <Button
+        onClick={start}
+        className={classes.startButton}
+        fullsize
+        variant="primary"
+      >
         Convert to {action === "wrap" ? "Wrapped" : "Native"} Token
       </Button>
-      <Button onClick={close}>Back</Button>
+      <Button variant="outline" onClick={close}>
+        Back
+      </Button>
     </CustomDrawer>
   );
 };

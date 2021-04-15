@@ -1,15 +1,11 @@
 import React from "react";
 
 import { makeStyles, createStyles, ITheme } from "@chainsafe/common-theme";
-import {
-  Button,
-  ExclamationCircleSvg,
-  ProgressBar,
-  Typography,
-} from "@chainsafe/common-components";
+import { Button, ProgressBar, Typography } from "@chainsafe/common-components";
 import CustomModal from "../Components/Custom/CustomModal";
 import { useChainbridge } from "../Contexts/ChainbridgeContext";
 import { useWeb3 } from "@chainsafe/web3-context";
+import { MOONBEAM_CYAN } from "../Themes/LightTheme";
 
 const useStyles = makeStyles(
   ({ animation, constants, palette, typography }: ITheme) =>
@@ -130,6 +126,10 @@ const useStyles = makeStyles(
           },
         },
       },
+      exclamation: {
+        color: MOONBEAM_CYAN,
+        fontSize: "2.1em !important"
+      }
     })
 );
 
@@ -180,8 +180,8 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
           ) : transactionStatus === "Transfer Completed" ? (
             "3"
           ) : (
-            <ExclamationCircleSvg />
-          )}
+              <i className={"fas fa-exclamation-circle fa-2x " + classes.exclamation}></i>
+            )}
         </div>
       </section>
       <section className={classes.content}>

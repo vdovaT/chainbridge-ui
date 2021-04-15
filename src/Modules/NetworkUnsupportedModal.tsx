@@ -2,11 +2,8 @@ import React from "react";
 
 import { makeStyles, createStyles, ITheme } from "@chainsafe/common-theme";
 import CustomModal from "../Components/Custom/CustomModal";
-import {
-  Button,
-  ExclamationCircleInverseSvg,
-  Typography,
-} from "@chainsafe/common-components";
+import { Button, Typography } from "@chainsafe/common-components";
+import { MOONBEAM_CYAN } from "../Themes/LightTheme";
 
 const useStyles = makeStyles(({ constants, palette }: ITheme) =>
   createStyles({
@@ -48,6 +45,10 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
         backgroundColor: palette.additional["gray"][8],
         color: palette.common.white.main,
       },
+    },
+    exclamation: {
+      color: MOONBEAM_CYAN,
+      marginRight: "6px",
     },
   })
 );
@@ -95,7 +96,9 @@ const NetworkUnsupportedModal: React.FC<INetworkUnsupportedModalProps> = ({
       active={open}
     >
       <section>
-        <ExclamationCircleInverseSvg className={classes.icon} />
+        <i
+          className={"fas fa-exclamation-circle fa-2x " + classes.exclamation}
+        ></i>
       </section>
       <section>
         <Typography className={classes.heading} variant="h3" component="h3">

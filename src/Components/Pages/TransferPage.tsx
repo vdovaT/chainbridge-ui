@@ -4,12 +4,7 @@ import AboutDrawer from "../../Modules/AboutDrawer";
 import ChangeNetworkDrawer from "../../Modules/ChangeNetworkDrawer";
 import NetworkUnsupportedModal from "../../Modules/NetworkUnsupportedModal";
 import PreflightModalTransfer from "../../Modules/PreflightModalTransfer";
-import {
-  Button,
-  Typography,
-  QuestionCircleSvg,
-  SelectInput,
-} from "@chainsafe/common-components";
+import { Button, Typography, SelectInput } from "@chainsafe/common-components";
 import { Form, Formik } from "formik";
 import AddressInput from "../Custom/AddressInput";
 import clsx from "clsx";
@@ -22,6 +17,7 @@ import { object, string } from "yup";
 import { utils } from "ethers";
 import { chainbridgeConfig } from "../../chainbridgeConfig";
 import FeesFormikWrapped from "./FormikContextElements/Fees";
+import { MOONBEAM_CYAN } from "../../Themes/LightTheme";
 
 const useStyles = makeStyles(({ constants, palette }: ITheme) =>
   createStyles({
@@ -134,11 +130,11 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       },
     },
     faqButton: {
-      cursor: "pointer",
-      height: 20,
-      width: 20,
       marginTop: constants.generalUnit * 5,
-      fill: `${palette.additional["transferUi"][1]} !important`,
+      "& > i": {
+        color: `${MOONBEAM_CYAN} !important`,
+        cursor: "pointer"
+      }
     },
     tokenItem: {
       display: "flex",
@@ -447,11 +443,8 @@ const TransferPage = () => {
               Start transfer
             </Button>
           </section>
-          <section>
-            <QuestionCircleSvg
-              onClick={() => setAboutOpen(true)}
-              className={classes.faqButton}
-            />
+          <section className={classes.faqButton}>
+            <i className="far fa-question-circle fa-2x" onClick={() => setAboutOpen(true)} />
           </section>
         </Form>
       </Formik>

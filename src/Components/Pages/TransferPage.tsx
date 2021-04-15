@@ -23,8 +23,7 @@ import { MOONBEAM_CYAN } from "../../Themes/LightTheme";
 const useStyles = makeStyles(({ constants, palette }: ITheme) =>
   createStyles({
     root: {
-      padding: constants.generalUnit * 6,
-      paddingTop: constants.generalUnit,
+      padding: `${constants.generalUnit}px ${constants.generalUnit * 6}px`,
       position: "relative",
       width: "100%",
     },
@@ -129,11 +128,24 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
         marginBottom: constants.generalUnit,
       },
     },
-    faqButton: {
+    moreInfo: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
       marginTop: constants.generalUnit * 5,
+      marginBottom: constants.generalUnit * 2,
       "& > i": {
         color: `${MOONBEAM_CYAN} !important`,
         cursor: "pointer",
+      },
+    },
+    moonbeamLinks: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignContent: "baseline",
+      "& > a": {
+        marginLeft: "10px",
+        color: MOONBEAM_CYAN,
       },
     },
     tokenItem: {
@@ -475,11 +487,27 @@ const TransferPage = () => {
               Start Transfer
             </Button>
           </section>
-          <section className={classes.faqButton}>
+          <section className={classes.moreInfo}>
             <i
               className="far fa-question-circle fa-2x"
               onClick={() => setAboutOpen(true)}
             />
+            <section className={classes.moonbeamLinks}>
+              <a
+                rel="noopener noreferrer"
+                href="https://moonbeam.network/"
+                target="_blank"
+              >
+                Moonbeam Network
+              </a>
+              <a
+                rel="noopener noreferrer"
+                href="https://docs.moonbeam.network/"
+                target="_blank"
+              >
+                Documentation
+              </a>
+            </section>
           </section>
         </Form>
       </Formik>

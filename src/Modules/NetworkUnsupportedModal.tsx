@@ -110,14 +110,24 @@ const NetworkUnsupportedModal: React.FC<INetworkUnsupportedModalProps> = ({
           browser wallet.
         </Typography>
         <br />
-        <Typography component="p" variant="body1">
-          This app is configured to work on{" "}
-          {supportedNetworks.map(
-            (n, i) =>
-              `${networkName(n)}${i < supportedNetworks.length - 1 ? ", " : ""}`
-          )}{" "}
-          networks
-        </Typography>
+        {supportedNetworks.length > 0 ? (
+          <Typography component="p" variant="body1">
+            This app is configured to work on{" "}
+            {supportedNetworks.map(
+              (n, i) =>
+                `${networkName(n)}${
+                  i < supportedNetworks.length - 2
+                    ? ", "
+                    : i === supportedNetworks.length - 1
+                    ? ""
+                    : " and "
+                }`
+            )}{" "}
+            networks
+          </Typography>
+        ) : (
+          ""
+        )}
         <section className={classes.buttons}>
           <a
             rel="noopener noreferrer"

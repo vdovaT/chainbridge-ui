@@ -402,6 +402,12 @@ const MainPage = () => {
         >
           <section className={classes.currencySection}>
             <section>
+              <WrapBalance
+                tokens={tokens}
+                tokenAddress={wrapTokenConfig?.address || "0x"}
+                action={action}
+                ethBalance={ethBalance ? ethBalance.toFixed(2) : "0.0"}
+              />
               <div
                 className={clsx(classes.tokenInputArea, classes.generalInput)}
               >
@@ -421,14 +427,6 @@ const MainPage = () => {
               </div>
             </section>
             <section className={classes.tokenIndicator}>
-              <Typography component="p">
-                Balance:{" "}
-                {action === "wrap"
-                  ? ethBalance
-                    ? ethBalance.toFixed(2)
-                    : 0.0
-                  : tokens[wrapTokenConfig?.address || "0x"].balance}
-              </Typography>
               <SelectInput
                 options={[
                   {

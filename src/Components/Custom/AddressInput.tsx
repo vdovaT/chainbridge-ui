@@ -40,7 +40,6 @@ const AddressInput: React.FC<IAddressInput> = ({
   type = "text",
   placeholder,
   name,
-  size,
   label,
   labelClassName,
   captionMessage,
@@ -69,7 +68,6 @@ const AddressInput: React.FC<IAddressInput> = ({
           label={label ? label : field.name}
           inputVariant={inputVariant}
           type={type}
-          size={size}
           className={clsx(classNames?.input, classes.input)}
           labelClassName={clsx(labelClassName, classes.label)}
           name={field.name}

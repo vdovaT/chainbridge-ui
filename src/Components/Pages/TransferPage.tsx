@@ -210,6 +210,21 @@ const TransferPage = () => {
     bridgeFee,
   } = useChainbridge();
 
+  type DestinationChains = {
+    chainId: number;
+    name: string;
+  }[];
+
+  let filteredDestinationChains: DestinationChains = destinationChains;
+  // If we are on an Ethereum chain already, do not show other Ethereum chains.
+  if (homeChain?.name.includes("Ethereum")) {
+    filteredDestinationChains = destinationChains.filter(
+      (chain) => !chain.name.includes("Ethereum")
+    );
+  }
+
+  console.log(destinationChain, destinationChains, homeChain);
+
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [walletConnecting, setWalletConnecting] = useState(false);
   const [changeNetworkOpen, setChangeNetworkOpen] = useState<boolean>(false);
@@ -358,7 +373,7 @@ const TransferPage = () => {
               label="Destination Network"
               className={classes.generalInput}
               disabled={!homeChain}
-              options={destinationChains.map((dc) => ({
+              options={filteredDestinationChains.map((dc) => ({
                 label: dc.name,
                 value: dc.chainId,
               }))}

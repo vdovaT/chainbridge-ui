@@ -223,8 +223,6 @@ const TransferPage = () => {
     );
   }
 
-  console.log(destinationChain, destinationChains, homeChain);
-
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [walletConnecting, setWalletConnecting] = useState(false);
   const [changeNetworkOpen, setChangeNetworkOpen] = useState<boolean>(false);

@@ -62,17 +62,6 @@ const useStyles = makeStyles(
           marginRight: constants.generalUnit,
         },
       },
-      button: {
-        borderColor: `${palette.additional["gray"][8]} !important`,
-        color: `${palette.additional["gray"][8]} !important`,
-        textDecoration: "none",
-        "&:hover": {
-          borderColor: `${palette.additional["gray"][8]} !important`,
-          backgroundColor: `${palette.additional["gray"][8]} !important`,
-          color: `${palette.common.white.main} !important`,
-          textDecoration: "none",
-        },
-      },
       initCopy: {
         display: "flex",
         flexDirection: "column",
@@ -197,17 +186,11 @@ const WrapActiveModal: React.FC<IWrapActiveModalProps> = ({
               )}
             </Typography>
             <section className={classes.buttons}>
-              <Button
-                size="small"
-                className={classes.button}
-                variant="outline"
-                onClick={() => close()}
-              >
+              <Button size="small" variant="outline" onClick={() => close()}>
                 Start a transfer
               </Button>
               <Button
                 size="small"
-                className={classes.button}
                 variant="outline"
                 onClick={() => {
                   close();

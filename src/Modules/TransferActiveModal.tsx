@@ -63,18 +63,6 @@ const useStyles = makeStyles(
           marginRight: constants.generalUnit,
         },
       },
-      button: {
-        borderColor: `${palette.additional["transactionModal"][2]} !important`,
-        color: `${palette.additional["gray"][8]} !important`,
-        textDecoration: "none",
-        backgroundColor: `${palette.common.white.main} !important`,
-        "&:hover": {
-          borderColor: `${palette.additional["gray"][8]} !important`,
-          backgroundColor: `${palette.additional["gray"][8]} !important`,
-          color: `${palette.common.white.main} !important`,
-          textDecoration: "none",
-        },
-      },
       initCopy: {
         display: "flex",
         flexDirection: "column",
@@ -252,7 +240,6 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
                   )
                 }
                 size="small"
-                className={classes.button}
                 variant="outline"
                 // disabled={
                 //   !destinationChain ||
@@ -262,12 +249,7 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
               >
                 View transaction
               </Button>
-              <Button
-                size="small"
-                className={classes.button}
-                variant="outline"
-                onClick={close}
-              >
+              <Button size="small" variant="outline" onClick={close}>
                 Start new transfer
               </Button>
             </section>
@@ -285,8 +267,6 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
                     "_blank"
                   )
                 }
-                size="small"
-                className={classes.button}
                 variant="outline"
                 disabled
               >
@@ -294,12 +274,7 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
               </Button>
             )}
             <section className={classes.buttons}>
-              <Button
-                size="small"
-                className={classes.button}
-                variant="outline"
-                onClick={close}
-              >
+              <Button variant="outline" onClick={close}>
                 Start new transfer
               </Button>
               <a

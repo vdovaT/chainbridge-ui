@@ -441,7 +441,7 @@ const TransferPage = () => {
                     preflightDetails.token === ""
                   }
                   name="tokenAmount"
-                  label="I want to send"
+                  label="Amount To Send"
                 />
               </div>
             </section>

@@ -87,7 +87,7 @@ const AppWrapper: React.FC<IAppWrapper> = ({ children }: IAppWrapper) => {
                 <Typography variant="h4">Transfer</Typography>
               </NavLink>
               <NavLink activeClassName="active" to={ROUTE_LINKS.Wrap}>
-                <Typography variant="h4">Wrap token</Typography>
+                <Typography variant="h4">Wrap Token</Typography>
               </NavLink>
             </section>
             {children}

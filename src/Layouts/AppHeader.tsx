@@ -68,7 +68,7 @@ const AppHeader: React.FC<IAppHeader> = () => {
         <div className={classes.logo}>
           <img alt="Moonbeam logo" src={logo}></img>
         </div>
-        <Typography variant="h4">Moonbase Token Swap</Typography>
+        <Typography variant="h4">Moonbase Alpha ChainBridge</Typography>
       </div>
       <section className={classes.state}>
         {!isReady ? (

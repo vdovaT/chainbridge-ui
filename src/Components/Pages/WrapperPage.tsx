@@ -416,7 +416,7 @@ const MainPage = () => {
                     button: classes.maxButton,
                   }}
                   name="tokenAmount"
-                  label="I want to convert"
+                  label="Amount To Convert"
                   max={
                     action === "wrap"
                       ? ethBalance

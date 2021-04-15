@@ -41,8 +41,8 @@ const useStyles = makeStyles(
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        border: `1px solid ${palette.additional["transactionModal"][2]}`,
-        color: palette.additional["transactionModal"][3],
+        border: `1px solid ${palette.additional["transactionModal"][1]}`,
+        color: palette.additional["transactionModal"][1],
         "& svg": {
           height: 20,
           width: 20,
@@ -189,7 +189,7 @@ const WrapActiveModal: React.FC<IWrapActiveModalProps> = ({
                   <a
                     rel="noopener noreferrer"
                     target="_blank"
-                    href={`${homeChain.blockExplorer}/${txHash}`}
+                    href={`${homeChain.blockExplorer}/tx/${txHash}`}
                   >
                     View Transaction
                   </a>

@@ -42,8 +42,8 @@ const useStyles = makeStyles(
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        border: `1px solid ${palette.additional["transactionModal"][2]}`,
-        color: palette.additional["transactionModal"][3],
+        border: `1px solid ${palette.additional["transactionModal"][1]}`,
+        color: palette.additional["transactionModal"][1],
         "& svg": {
           height: 20,
           width: 20,
@@ -64,9 +64,10 @@ const useStyles = makeStyles(
         },
       },
       button: {
-        borderColor: `${palette.additional["gray"][8]} !important`,
+        borderColor: `${palette.additional["transactionModal"][2]} !important`,
         color: `${palette.additional["gray"][8]} !important`,
         textDecoration: "none",
+        backgroundColor: `${palette.common.white.main} !important`,
         "&:hover": {
           borderColor: `${palette.additional["gray"][8]} !important`,
           backgroundColor: `${palette.additional["gray"][8]} !important`,
@@ -128,8 +129,8 @@ const useStyles = makeStyles(
       },
       exclamation: {
         color: MOONBEAM_CYAN,
-        fontSize: "2.1em !important"
-      }
+        fontSize: "2.1em !important",
+      },
     })
 );
 
@@ -180,8 +181,12 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
           ) : transactionStatus === "Transfer Completed" ? (
             "3"
           ) : (
-              <i className={"fas fa-exclamation-circle fa-2x " + classes.exclamation}></i>
-            )}
+            <i
+              className={
+                "fas fa-exclamation-circle fa-2x " + classes.exclamation
+              }
+            ></i>
+          )}
         </div>
       </section>
       <section className={classes.content}>
@@ -242,7 +247,7 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
                   destinationChain.blockExplorer &&
                   transferTxHash &&
                   window.open(
-                    `${destinationChain.blockExplorer}/${transferTxHash}`,
+                    `${destinationChain.blockExplorer}/tx/${transferTxHash}`,
                     "_blank"
                   )
                 }
@@ -276,7 +281,7 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
               <Button
                 onClick={() =>
                   window.open(
-                    `${homeChain?.blockExplorer}/${transferTxHash}`,
+                    `${homeChain?.blockExplorer}/tx/${transferTxHash}`,
                     "_blank"
                   )
                 }

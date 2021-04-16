@@ -1,4 +1,4 @@
-import WETHIcon from "./media/tokens/weth.svg";
+import TokenIcon from "./media/tokens/token-icon.svg";
 
 export type TokenConfig = {
   address: string;
@@ -36,7 +36,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       name: "Ethereum - Rinkeby",
       bridgeAddress: "0x747e8C91C8661704b1c33b0365A89f7e988E1de3",
       erc20HandlerAddress: "0xDC826cF5AD261FcD1D1dC404648B4D596Df88C8C",
-      rpcUrl: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.REACT_APP_ALCHEMY_API_KEY}`,
+      rpcUrl: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.REACT_APP_ALCHEMY_RINKEBY_API_KEY}`,
       type: "Ethereum",
       blockExplorer: "https://rinkeby.etherscan.io",
       nativeTokenSymbol: "rETH",
@@ -45,7 +45,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
           address: "0x019F59AFbB89f0d395F905F7Ca0A48485619bcA5",
           name: "ERC20Sample",
           symbol: "ERC20S",
-          imageUri: WETHIcon,
+          imageUri: TokenIcon,
           resourceId:
             "0x0000000000000000000000019F59AFbB89f0d395F905F7Ca0A48485619bcA504",
         },
@@ -57,7 +57,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       name: "Ethereum - Kovan",
       bridgeAddress: "0x747e8C91C8661704b1c33b0365A89f7e988E1de3",
       erc20HandlerAddress: "0xDC826cF5AD261FcD1D1dC404648B4D596Df88C8C",
-      rpcUrl: `https://eth-kovan.alchemyapi.io/v2/${process.env.REACT_APP_ALCHEMY_API_KEY}`,
+      rpcUrl: `https://eth-kovan.alchemyapi.io/v2/${process.env.REACT_APP_ALCHEMY_KOVAN_API_KEY}`,
       type: "Ethereum",
       blockExplorer: "https://kovan.etherscan.io",
       nativeTokenSymbol: "kETH",
@@ -66,7 +66,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
           address: "0x019F59AFbB89f0d395F905F7Ca0A48485619bcA5",
           name: "ERC20Sample",
           symbol: "ERC20S",
-          imageUri: WETHIcon,
+          imageUri: TokenIcon,
           resourceId:
             "0x0000000000000000000000019F59AFbB89f0d395F905F7Ca0A48485619bcA52a",
         },
@@ -87,7 +87,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
           address: "0x019F59AFbB89f0d395F905F7Ca0A48485619bcA5",
           name: "ERC20Sample",
           symbol: "ERC20S",
-          imageUri: WETHIcon,
+          imageUri: TokenIcon,
           resourceId:
             "0x0000000000000000000000019F59AFbB89f0d395F905F7Ca0A48485619bcA52b",
         },

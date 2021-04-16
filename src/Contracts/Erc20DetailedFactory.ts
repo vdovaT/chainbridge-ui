@@ -40,6 +40,15 @@ const _abi = [
     type: "function",
   },
   {
+    constant: false,
+    inputs: [],
+    name: "mintTokens",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     constant: true,
     inputs: [],
     name: "totalSupply",

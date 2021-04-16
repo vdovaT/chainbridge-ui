@@ -3,20 +3,14 @@ import { makeStyles, createStyles, ITheme } from "@chainsafe/common-theme";
 import AboutDrawer from "../../Modules/AboutDrawer";
 import ChangeNetworkDrawer from "../../Modules/ChangeNetworkDrawer";
 import NetworkUnsupportedModal from "../../Modules/NetworkUnsupportedModal";
-import PreflightModalTransfer from "../../Modules/PreflightModalTransfer";
 import { Button, Typography, SelectInput } from "@chainsafe/common-components";
 import { Form, Formik } from "formik";
-import AddressInput from "../Custom/AddressInput";
 import clsx from "clsx";
-import TransferActiveModal from "../../Modules/TransferActiveModal";
 import { useWeb3 } from "@chainsafe/web3-context";
 import { useChainbridge } from "../../Contexts/ChainbridgeContext";
-import TokenSelectInput from "../Custom/TokenSelectInput";
-import TokenInput from "../Custom/TokenInput";
-import { object, string } from "yup";
-import { utils } from "ethers";
 import { chainbridgeConfig } from "../../chainbridgeConfig";
-import FeesFormikWrapped from "./FormikContextElements/Fees";
+import { Erc20DetailedFactory } from "../../Contracts/Erc20DetailedFactory";
+import TokenSelectInput from "../Custom/TokenSelectInput";
 import Balance from "../Custom/Balance";
 import { MOONBEAM_CYAN } from "../../Themes/LightTheme";
 
@@ -200,45 +194,28 @@ type PreflightDetails = {
   receiver: string;
 };
 
-const TransferPage = () => {
+const MinterPage = () => {
   const classes = useStyles();
   const {
     isReady,
     checkIsReady,
     wallet,
+    address,
     onboard,
     tokens,
-    address,
+    provider,
     network,
   } = useWeb3();
   const {
     homeChain,
     destinationChains,
     destinationChain,
-    deposit,
     setDestinationChain,
-    transactionStatus,
-    resetDeposit,
-    bridgeFee,
   } = useChainbridge();
-
-  type DestinationChains = {
-    chainId: number;
-    name: string;
-  }[];
-
-  let filteredDestinationChains: DestinationChains = destinationChains;
-  // If we are on an Ethereum chain already, do not show other Ethereum chains.
-  if (homeChain?.name.includes("Ethereum")) {
-    filteredDestinationChains = destinationChains.filter(
-      (chain) => !chain.name.includes("Ethereum")
-    );
-  }
 
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [walletConnecting, setWalletConnecting] = useState(false);
   const [changeNetworkOpen, setChangeNetworkOpen] = useState<boolean>(false);
-  const [preflightModalOpen, setPreflightModalOpen] = useState<boolean>(false);
 
   const [preflightDetails, setPreflightDetails] = useState<PreflightDetails>({
     receiver: "",
@@ -254,66 +231,38 @@ const TransferPage = () => {
     setWalletConnecting(false);
   };
 
-  const DECIMALS =
-    preflightDetails && tokens[preflightDetails.token]
-      ? tokens[preflightDetails.token].decimals
-      : 18;
+  const mintTokens = async (tokens: string) => {
+    const signer = provider?.getSigner();
+    if (!address || !signer) {
+      console.log("No signer");
+      return;
+    }
+    console.log(tokens);
+    const erc20s = Erc20DetailedFactory.connect(tokens, signer);
+    console.log(erc20s);
+    try {
+      await erc20s.mintTokens();
+    } catch (error) {
+      console.log(error);
+      return Promise.reject();
+    }
+  };
 
-  const REGEX =
-    DECIMALS > 0
-      ? new RegExp(`^[0-9]{1,18}(.[0-9]{1,${DECIMALS}})?$`)
-      : new RegExp(`^[0-9]{1,18}?$`);
+  type DestinationChains = {
+    chainId: number;
+    name: string;
+  }[];
 
-  const transferSchema = object().shape({
-    tokenAmount: string()
-      .test("Token selected", "Please select a token", (value) => {
-        if (
-          !!value &&
-          preflightDetails &&
-          tokens[preflightDetails.token] &&
-          tokens[preflightDetails.token].balance !== undefined
-        ) {
-          return true;
-        } else {
-          return false;
-        }
-      })
-      .test("InputValid", "Input invalid", (value) => {
-        try {
-          return REGEX.test(`${value}`);
-        } catch (error) {
-          console.error(error);
-          return false;
-        }
-      })
-      .test("Max", "Insufficent funds", (value) => {
-        if (
-          value &&
-          preflightDetails &&
-          tokens[preflightDetails.token] &&
-          tokens[preflightDetails.token].balance
-        ) {
-          return parseFloat(value) <= tokens[preflightDetails.token].balance;
-        }
-        return false;
-      })
-      .test("Min", "Less than minimum", (value) => {
-        if (value) {
-          return parseFloat(value) > 0;
-        }
-        return false;
-      })
-      .required("Please set a value"),
-    token: string().required("Please select a token"),
-    receiver: string()
-      .test("Valid address", "Please add a valid address", (value) => {
-        return utils.isAddress(value as string);
-      })
-      .required("Please add a receiving address"),
-  });
+  let filteredDestinationChains: DestinationChains = destinationChains;
+  // If we are on an Ethereum chain already, do not show other Ethereum chains.
+  if (homeChain?.name.includes("Ethereum")) {
+    filteredDestinationChains = destinationChains.filter(
+      (chain) => !chain.name.includes("Ethereum")
+    );
+  }
 
   // TODO: line 467: How to pull correct HomeChain Symbol
-  console.log(tokens);
+
   return (
     <article className={classes.root}>
       <div className={classes.walletArea}>
@@ -363,14 +312,8 @@ const TransferPage = () => {
           token: "",
           receiver: "",
         }}
-        validateOnChange={false}
-        validationSchema={transferSchema}
-        onSubmit={(values) => {
-          setPreflightDetails({
-            ...values,
-            tokenSymbol: tokens[values.token].symbol || "",
-          });
-          setPreflightModalOpen(true);
+        onSubmit={(tokenAddress) => {
+          mintTokens(tokenAddress.token);
         }}
       >
         <Form
@@ -418,6 +361,8 @@ const TransferPage = () => {
                 }
               />
             </section>
+          </section>
+          <section className={classes.currencySection}>
             <section className={classes.balanceSection}>
               <Balance
                 tokens={tokens}
@@ -433,50 +378,6 @@ const TransferPage = () => {
               />
             </section>
           </section>
-          <section className={classes.currencySection}>
-            <section>
-              <div
-                className={clsx(classes.tokenInputArea, classes.generalInput)}
-              >
-                <TokenInput
-                  classNames={{
-                    input: clsx(classes.tokenInput, classes.generalInput),
-                    button: classes.maxButton,
-                  }}
-                  tokenSelectorKey="token"
-                  tokens={tokens}
-                  disabled={
-                    !destinationChain ||
-                    !preflightDetails.token ||
-                    preflightDetails.token === ""
-                  }
-                  name="tokenAmount"
-                  label="Amount To Send"
-                />
-              </div>
-            </section>
-          </section>
-          <section>
-            <AddressInput
-              disabled={!destinationChain}
-              name="receiver"
-              label="Destination Address"
-              placeholder="Please enter the receiving address"
-              className={classes.address}
-              senderAddress={`${address}`}
-            />
-          </section>
-          <FeesFormikWrapped
-            amountFormikName="tokenAmount"
-            className={classes.fees}
-            fee={bridgeFee}
-            feeSymbol={homeChain?.nativeTokenSymbol}
-            symbol={
-              preflightDetails && tokens[preflightDetails.token]
-                ? tokens[preflightDetails.token].symbol
-                : undefined
-            }
-          />
           <section className={classes.transferButtonSection}>
             <Button
               type="submit"
@@ -484,7 +385,7 @@ const TransferPage = () => {
               variant="primary"
               disabled={!isReady}
             >
-              Start Transfer
+              Mint Tokens
             </Button>
           </section>
           <section className={classes.moreInfo}>
@@ -521,27 +422,7 @@ const TransferPage = () => {
         network={network}
         supportedNetworks={chainbridgeConfig.chains.map((bc) => bc.networkId)}
       />
-      <PreflightModalTransfer
-        open={preflightModalOpen}
-        close={() => setPreflightModalOpen(false)}
-        receiver={preflightDetails?.receiver || ""}
-        sender={address || ""}
-        start={() => {
-          setPreflightModalOpen(false);
-          preflightDetails &&
-            deposit(
-              preflightDetails.tokenAmount,
-              preflightDetails.receiver,
-              preflightDetails.token
-            );
-        }}
-        sourceNetwork={homeChain?.name || ""}
-        targetNetwork={destinationChain?.name || ""}
-        tokenSymbol={preflightDetails?.tokenSymbol || ""}
-        value={preflightDetails?.tokenAmount || 0}
-      />
-      <TransferActiveModal open={!!transactionStatus} close={resetDeposit} />
     </article>
   );
 };
-export default TransferPage;
+export default MinterPage;

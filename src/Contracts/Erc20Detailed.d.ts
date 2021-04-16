@@ -22,6 +22,7 @@ import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 interface Erc20DetailedInterface extends ethers.utils.Interface {
   functions: {
     "approve(address,uint256)": FunctionFragment;
+    "mintTokens()": FunctionFragment;
     "totalSupply()": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
@@ -35,6 +36,10 @@ interface Erc20DetailedInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "approve",
     values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mintTokens",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "totalSupply",
@@ -58,6 +63,7 @@ interface Erc20DetailedInterface extends ethers.utils.Interface {
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "mintTokens", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "totalSupply",
     data: BytesLike
@@ -107,6 +113,10 @@ export class Erc20Detailed extends Contract {
       amount: BigNumberish,
       overrides?: Overrides
     ): Promise<ContractTransaction>;
+
+    mintTokens(overrides?: Overrides): Promise<ContractTransaction>;
+
+    "mintTokens()"(overrides?: Overrides): Promise<ContractTransaction>;
 
     totalSupply(
       overrides?: CallOverrides
@@ -225,6 +235,10 @@ export class Erc20Detailed extends Contract {
     overrides?: Overrides
   ): Promise<ContractTransaction>;
 
+  mintTokens(overrides?: Overrides): Promise<ContractTransaction>;
+
+  "mintTokens()"(overrides?: Overrides): Promise<ContractTransaction>;
+
   totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
   "totalSupply()"(overrides?: CallOverrides): Promise<BigNumber>;
@@ -298,6 +312,10 @@ export class Erc20Detailed extends Contract {
       amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<boolean>;
+
+    mintTokens(overrides?: CallOverrides): Promise<boolean>;
+
+    "mintTokens()"(overrides?: CallOverrides): Promise<boolean>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -384,6 +402,10 @@ export class Erc20Detailed extends Contract {
       overrides?: Overrides
     ): Promise<BigNumber>;
 
+    mintTokens(overrides?: Overrides): Promise<BigNumber>;
+
+    "mintTokens()"(overrides?: Overrides): Promise<BigNumber>;
+
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
     "totalSupply()"(overrides?: CallOverrides): Promise<BigNumber>;
@@ -458,6 +480,10 @@ export class Erc20Detailed extends Contract {
       amount: BigNumberish,
       overrides?: Overrides
     ): Promise<PopulatedTransaction>;
+
+    mintTokens(overrides?: Overrides): Promise<PopulatedTransaction>;
+
+    "mintTokens()"(overrides?: Overrides): Promise<PopulatedTransaction>;
 
     totalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 

@@ -80,7 +80,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       erc20HandlerAddress: "0xDC826cF5AD261FcD1D1dC404648B4D596Df88C8C",
       rpcUrl: "https://rpc.testnet.moonbeam.network",
       type: "Ethereum",
-      blockExplorer: "https://moonbeam-explorer.netlify.app",
+      blockExplorer: "https://moonbase-blockscout.testnet.moonbeam.network",
       nativeTokenSymbol: "DEV",
       tokens: [
         {

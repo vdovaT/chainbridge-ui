@@ -394,18 +394,10 @@ const MinterPage = () => {
               onClick={() => setAboutOpen(true)}
             />
             <section className={classes.moonbeamLinks}>
-              <a
-                rel="noopener noreferrer"
-                href="https://moonbeam.network/"
-                target="_blank"
-              >
-                Moonbeam Network
+              <a rel="noopener noreferrer" href="#" target="_blank">
+                Whalefin
               </a>
-              <a
-                rel="noopener noreferrer"
-                href="https://docs.moonbeam.network/"
-                target="_blank"
-              >
+              <a rel="noopener noreferrer" href="#" target="_blank">
                 Documentation
               </a>
             </section>

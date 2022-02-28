@@ -86,9 +86,9 @@ const AppWrapper: React.FC<IAppWrapper> = ({ children }: IAppWrapper) => {
               <NavLink activeClassName="active" to={ROUTE_LINKS.Transfer}>
                 <Typography variant="h4">Transfer</Typography>
               </NavLink>
-              <NavLink activeClassName="active" to={ROUTE_LINKS.Mint}>
-                <Typography variant="h4">Mint ERC20S</Typography>
-              </NavLink>
+              {/* <NavLink activeClassName="active" to={ROUTE_LINKS.Mint} disabled>
+                <Typography variant="h4">NFTs</Typography>
+              </NavLink> */}
             </section>
             {children}
           </div>

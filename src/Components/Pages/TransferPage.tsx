@@ -230,8 +230,8 @@ const TransferPage = () => {
   let filteredDestinationChains: DestinationChains = destinationChains;
   // If we are on an Ethereum chain already, do not show other Ethereum chains.
   if (homeChain?.name.includes("Ethereum")) {
-    filteredDestinationChains = destinationChains.filter(
-      (chain) => !chain.name.includes("Ethereum")
+    filteredDestinationChains = destinationChains.filter((chain) =>
+      chain.name.includes("Ethereum")
     );
   }
 
@@ -492,18 +492,10 @@ const TransferPage = () => {
               onClick={() => setAboutOpen(true)}
             />
             <section className={classes.moonbeamLinks}>
-              <a
-                rel="noopener noreferrer"
-                href="https://moonbeam.network/"
-                target="_blank"
-              >
-                Moonbeam Network
+              <a rel="noopener noreferrer" href="#" target="_blank">
+                Whalefin
               </a>
-              <a
-                rel="noopener noreferrer"
-                href="https://docs.moonbeam.network/"
-                target="_blank"
-              >
+              <a rel="noopener noreferrer" href="#" target="_blank">
                 Documentation
               </a>
             </section>

@@ -43,7 +43,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       nativeTokenSymbol: "ETH",
       tokens: [
         {
-          address: "0xFCefBC458DA5b11a10422C0703bea1D154887D76",
+          address: "0xfAF7fD7267d345a97e05090673175a168CC5c39b",
           name: "Openverse",
           symbol: "OPEN",
           imageUri: TokenIcon,

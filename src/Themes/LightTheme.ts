@@ -2,7 +2,7 @@ import { createTheme } from "@chainsafe/common-theme";
 
 export const MOONBEAM_PINK = "#E1147B";
 export const MOONBEAM_PURPLE = "#3D1D5A";
-export const MOONBEAM_CYAN = "#53CBC9";
+export const MOONBEAM_CYAN = "#ecb100";
 
 export const lightTheme = createTheme({
   globalStyling: {

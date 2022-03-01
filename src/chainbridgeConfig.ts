@@ -1,4 +1,4 @@
-import TokenIcon from "./media/tokens/token-icon.svg";
+import TokenIcon from "./media/tokens/teddylogo.png";
 
 export type TokenConfig = {
   address: string;
@@ -31,45 +31,44 @@ export type ChainbridgeConfig = {
 export const chainbridgeConfig: ChainbridgeConfig = {
   chains: [
     {
-      chainId: 0,
-      networkId: 816,
-      name: "Ethereum - Whalefin",
-      bridgeAddress: "0x9C4Ef7C76525fde32dbE9255B013Aaee4DFB61ca",
-      erc20HandlerAddress: "0x059c76B1bBa95B7b46c11cA977Adf0dc92C3eBe3",
-      rpcUrl: `https://rpc.nexisdao.info`,
+      chainId: 56,
+      networkId: 56,
+      name: "Ethereum - BSC",
+      bridgeAddress: "0xa199dC74D222A40b4a0266Ac017CAc05aEe17Df4",
+      erc20HandlerAddress: "0xf633a898875Ee591D9222aF6ace67e3d2a8082a1",
+      rpcUrl: `https://bsc.getblock.io/mainnet/?api_key=c5c155b5-27b3-4e8e-bba3-df9970326879`,
       type: "Ethereum",
-      blockExplorer: "https://explorer.blockchain.openverse.io",
-      defaultGasPrice: 0,
-      nativeTokenSymbol: "ETH",
+      blockExplorer: "https://bscscan.com/",
+      nativeTokenSymbol: "BSC",
       tokens: [
         {
-          address: "0xfAF7fD7267d345a97e05090673175a168CC5c39b",
-          name: "Openverse",
-          symbol: "OPEN",
+          address: "0x10f6f2b97f3ab29583d9d38babf2994df7220c21",
+          name: "TeddyDoge",
+          symbol: "TEDDY",
           imageUri: TokenIcon,
           resourceId:
-            "0x0000000000000000000000fAF7fD7267d345a97e05090673175a168CC5c39b00",
+            "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00",
         },
       ],
     },
     {
-      chainId: 1,
+      chainId: 5,
       networkId: 5,
       name: "Ethereum - Goerli",
-      bridgeAddress: "0xB3F57d01299C5422542Ab338f6D5AA6D24eFa694",
-      erc20HandlerAddress: "0xDadd6712aab46CFB2D92De4015f47a0856fd153C",
+      bridgeAddress: "0x42d3765949e8BaA49b0b64Eb729071e053ab8742",
+      erc20HandlerAddress: "0xf9899811A81613dFF94978E24A6E77F840D534f3",
       rpcUrl: `https://goerli.infura.io/v3/babe53e1426743b292601e347893b4da`,
       type: "Ethereum",
       blockExplorer: "https://goerli.etherscan.io",
       nativeTokenSymbol: "göETH",
       tokens: [
         {
-          address: "0x64B0dF8CBDA97Af0D9E67d0679B4E5653f43b0BA",
-          name: "wOpenverse",
-          symbol: "wOPEN",
+          address: "0x8f0f2ED815B660fF404cD4518ec67B1294DE8ec3",
+          name: "wTeddyDoge",
+          symbol: "wTEDDY",
           imageUri: TokenIcon,
           resourceId:
-            "0x0000000000000000000000fAF7fD7267d345a97e05090673175a168CC5c39b00",
+            "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00",
         },
       ],
     },

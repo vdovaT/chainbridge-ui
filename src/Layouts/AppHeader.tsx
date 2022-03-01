@@ -5,7 +5,7 @@ import { Typography } from "@chainsafe/common-components";
 import { shortenAddress } from "../Utils/Helpers";
 import { useWeb3 } from "@chainsafe/web3-context";
 import { useChainbridge } from "../Contexts/ChainbridgeContext";
-import logo from "../media/logos/moonbeam-logo.png";
+import logo from "../media/logos/teddylogo.png";
 
 const useStyles = makeStyles(({ constants, palette, zIndex }: ITheme) => {
   return createStyles({
@@ -68,7 +68,7 @@ const AppHeader: React.FC<IAppHeader> = () => {
         <div className={classes.logo}>
           <img alt="Moonbeam logo" src={logo}></img>
         </div>
-        <Typography variant="h4">Whalefin Alpha ChainBridge</Typography>
+        <Typography variant="h4">Teddy Alpha ChainBridge</Typography>
       </div>
       <section className={classes.state}>
         {!isReady ? (

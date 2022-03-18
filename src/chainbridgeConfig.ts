@@ -56,7 +56,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       networkId: 1,
       name: "Ethereum - ETH",
       bridgeAddress: "0xf9899811a81613dff94978e24a6e77f840d534f3",
-      erc20HandlerAddress: "0x8f0f2ED815B660fF404cD4518ec67B1294DE8ec3",
+      erc20HandlerAddress: "0x9cf48a0b0c6127Aa5d934e92E16099C4233F4D20",
       rpcUrl: `https://mainnet.infura.io/v3/babe53e1426743b292601e347893b4da`,
       type: "Ethereum",
       blockExplorer: "https://etherscan.io",

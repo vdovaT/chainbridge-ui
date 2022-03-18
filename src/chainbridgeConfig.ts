@@ -39,7 +39,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       rpcUrl: `https://bsc.getblock.io/mainnet/?api_key=c5c155b5-27b3-4e8e-bba3-df9970326879`,
       type: "Ethereum",
       blockExplorer: "https://bscscan.com/",
-      nativeTokenSymbol: "BSC",
+      nativeTokenSymbol: "BNB",
       tokens: [
         {
           address: "0x10f6f2b97f3ab29583d9d38babf2994df7220c21",

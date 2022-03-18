@@ -380,30 +380,14 @@ const ChainbridgeProvider = ({ children }: IChainbridgeContextProps) => {
           await (
             await erc20.approve(
               homeChain.erc20HandlerAddress,
-              BigNumber.from(utils.parseUnits("0", erc20Decimals)),
-              {
-                gasPrice: BigNumber.from(
-                  utils.parseUnits(
-                    (homeChain.defaultGasPrice || gasPrice).toString(),
-                    9
-                  )
-                ).toString(),
-              }
+              BigNumber.from(utils.parseUnits("0", erc20Decimals))
             )
           ).wait(1);
         }
         await (
           await erc20.approve(
             homeChain.erc20HandlerAddress,
-            BigNumber.from(utils.parseUnits(amount.toString(), erc20Decimals)),
-            {
-              gasPrice: BigNumber.from(
-                utils.parseUnits(
-                  (homeChain.defaultGasPrice || gasPrice).toString(),
-                  9
-                )
-              ).toString(),
-            }
+            BigNumber.from(utils.parseUnits(amount.toString(), erc20Decimals))
           )
         ).wait(1);
       }
@@ -426,10 +410,6 @@ const ChainbridgeProvider = ({ children }: IChainbridgeContextProps) => {
           token.resourceId,
           data,
           {
-            gasPrice: utils.parseUnits(
-              (homeChain.defaultGasPrice || gasPrice).toString(),
-              9
-            ),
             value: utils.parseUnits((bridgeFee || 0).toString(), 18),
           }
         )

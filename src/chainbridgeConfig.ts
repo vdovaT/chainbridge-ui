@@ -3,6 +3,7 @@ import SHIBAIcon from "./media/tokens/shibalogo.png";
 import ETHIcon from "./media/tokens/eth.png";
 import USDTIcon from "./media/tokens/usdtlogo.png";
 import USDCIcon from "./media/tokens/usdclogo.png";
+import PIZAIcon from "./media/tokens/pizalogo.png";
 
 export type TokenConfig = {
   address: string;
@@ -52,6 +53,14 @@ export const chainbridgeConfig: ChainbridgeConfig = {
           imageUri: TokenIcon,
           resourceId:
             "0x000000000000000000000010f6f2b97F3aB29583D9D38BaBF2994dF7220C2100",
+        },
+        {
+          address: "0xFC646D0B564bf191B3d3adF2B620a792E485e6Da",
+          name: "Half Pizza",
+          symbol: "PIZA",
+          imageUri: PIZAIcon,
+          resourceId:
+            "0x0000000000000000000000FC646D0B564bf191B3d3adF2B620a792E485e6Da00",
         },
         {
           address: "0x67eF82C01D60FDb4D1af833Cd3bE0625cCcCe6b1",
@@ -105,6 +114,14 @@ export const chainbridgeConfig: ChainbridgeConfig = {
           imageUri: TokenIcon,
           resourceId:
             "0x000000000000000000000010f6f2b97F3aB29583D9D38BaBF2994dF7220C2100",
+        },
+        {
+          address: "0x350ca33E2c75269A220c75D337E9B9AB177FA269",
+          name: "Half Pizza",
+          symbol: "PIZA",
+          imageUri: PIZAIcon,
+          resourceId:
+            "0x0000000000000000000000FC646D0B564bf191B3d3adF2B620a792E485e6Da00",
         },
         {
           address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",

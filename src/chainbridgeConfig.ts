@@ -64,7 +64,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
         },
         {
           address: "0x67eF82C01D60FDb4D1af833Cd3bE0625cCcCe6b1",
-          name: "TeddyETH",
+          name: "ETH",
           symbol: "tETH",
           imageUri: ETHIcon,
           resourceId:
@@ -72,7 +72,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
         },
         {
           address: "0x763fCB4fEFdcb8AaADE82f757A8cBC85E49Ed1E8",
-          name: "TeddyUSDT",
+          name: "USDT",
           symbol: "tUSDT",
           imageUri: USDTIcon,
           resourceId:
@@ -80,7 +80,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
         },
         {
           address: "0x3FB9EDac5C540746fbD85943e75Ee043261816cE",
-          name: "TeddyUSDC",
+          name: "USDC",
           symbol: "tUSDC",
           imageUri: USDCIcon,
           resourceId:
@@ -88,11 +88,32 @@ export const chainbridgeConfig: ChainbridgeConfig = {
         },
         {
           address: "0x5ca640153CD0Bc9b89bf38132286f4aCC246ebd8",
-          name: "TeddySHIBA",
+          name: "SHIBA",
           symbol: "tSHIBA",
           imageUri: SHIBAIcon,
           resourceId:
             "0x00000000000000000000005ca640153CD0Bc9b89bf38132286f4aCC246ebd800",
+        },
+      ],
+    },
+    {
+      chainId: 32,
+      networkId: 321,
+      name: "Ethereum - KCC",
+      bridgeAddress: "0xf9899811A81613dFF94978E24A6E77F840D534f3",
+      erc20HandlerAddress: "0x846A51099B585463A5f7Aa3c08F18990aA44764f",
+      rpcUrl: `https://kcc.getblock.io/mainnet/?api_key=c5c155b5-27b3-4e8e-bba3-df9970326879`,
+      type: "Ethereum",
+      blockExplorer: "https://explorer.kcc.io/",
+      nativeTokenSymbol: "KCS",
+      tokens: [
+        {
+          address: "0x10f6f2b97f3ab29583d9d38babf2994df7220c21",
+          name: "TeddyDoge",
+          symbol: "TEDDY",
+          imageUri: TokenIcon,
+          resourceId:
+            "0x000000000000000000000010f6f2b97F3aB29583D9D38BaBF2994dF7220C2100",
         },
       ],
     },

@@ -400,20 +400,26 @@ const TransferPage = () => {
                 className={classes.generalInput}
                 placeholder=""
                 options={
-                  Object.keys(tokens).map((t) => ({
-                    value: t,
-                    label: (
-                      <div className={classes.tokenItem}>
-                        {tokens[t]?.imageUri && (
-                          <img
-                            src={tokens[t]?.imageUri}
-                            alt={tokens[t]?.symbol}
-                          />
-                        )}
-                        <span>{tokens[t]?.symbol || t}</span>
-                      </div>
-                    ),
-                  })) || []
+                  Object.keys(tokens)
+                    .filter((t) => {
+                      return destinationChain?.tokens.find((item) => {
+                        return item.name === tokens[t]?.name;
+                      });
+                    })
+                    .map((t) => ({
+                      value: t,
+                      label: (
+                        <div className={classes.tokenItem}>
+                          {tokens[t]?.imageUri && (
+                            <img
+                              src={tokens[t]?.imageUri}
+                              alt={tokens[t]?.symbol}
+                            />
+                          )}
+                          <span>{tokens[t]?.symbol || t}</span>
+                        </div>
+                      ),
+                    })) || []
                 }
               />
             </section>

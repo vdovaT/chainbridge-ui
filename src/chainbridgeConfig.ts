@@ -64,7 +64,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
         },
         {
           address: "0x67eF82C01D60FDb4D1af833Cd3bE0625cCcCe6b1",
-          name: "ETH",
+          name: "WETH",
           symbol: "tETH",
           imageUri: ETHIcon,
           resourceId:
@@ -141,7 +141,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
         },
         {
           address: "0x4d771331E32cC6F6CA134601E737F1E8B1F83920",
-          name: "ETH",
+          name: "WETH",
           symbol: "tETH",
           imageUri: ETHIcon,
           resourceId:

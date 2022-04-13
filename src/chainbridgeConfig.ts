@@ -150,6 +150,27 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       ],
     },
     {
+      chainId: 40,
+      networkId: 43114,
+      name: "Ethereum - AVAX",
+      bridgeAddress: "0xf9899811A81613dFF94978E24A6E77F840D534f3",
+      erc20HandlerAddress: "0x8f0f2ED815B660fF404cD4518ec67B1294DE8ec3",
+      rpcUrl: `https://speedy-nodes-nyc.moralis.io/4a0481cf5a19c72502361ffc/avalanche/mainnet`,
+      type: "Ethereum",
+      blockExplorer: "https://snowtrace.io/",
+      nativeTokenSymbol: "AVAX",
+      tokens: [
+        {
+          address: "0x10f6f2b97f3ab29583d9d38babf2994df7220c21",
+          name: "TeddyDoge",
+          symbol: "TEDDY",
+          imageUri: TokenIcon,
+          resourceId:
+            "0x000000000000000000000010f6f2b97F3aB29583D9D38BaBF2994dF7220C2100",
+        },
+      ],
+    },
+    {
       chainId: 0,
       networkId: 1,
       name: "Ethereum - ETH",

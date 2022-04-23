@@ -221,38 +221,38 @@ export const chainbridgeConfig: ChainbridgeConfig = {
           resourceId:
             "0x000000000000000000000010f6f2b97F3aB29583D9D38BaBF2994dF7220C2100",
         },
-        // {
-        //   address: "0x1BABf9a2b471127bdfF520C6271e570DBB215C11",
-        //   name: "USDT",
-        //   symbol: "USDT",
-        //   imageUri: USDTIcon,
-        //   resourceId:
-        //     "0x0000000000000000000000b59e2a3FD2b8d057B86100791EA6BFB5fA2240c100",
-        // },
-        // {
-        //   address: "0xb12BC27B77ae3b2C1506fD5D61E9BaAe5aa78B95",
-        //   name: "USDC",
-        //   symbol: "tUSDC",
-        //   imageUri: USDCIcon,
-        //   resourceId:
-        //     "0x00000000000000000000000B9742d1EE856cC64AcDC848191F458089240ABB00",
-        // },
-        // {
-        //   address: "0x388DC12E1d4519685Cf16f786182790BA3965C16",
-        //   name: "SHIBA",
-        //   symbol: "tSHIBA",
-        //   imageUri: SHIBAIcon,
-        //   resourceId:
-        //     "0x00000000000000000000005ca640153CD0Bc9b89bf38132286f4aCC246ebd800",
-        // },
-        // {
-        //   address: "0x03383aBa89F1F091fA8A0106900ABfD00e57b9aD",
-        //   name: "WETH",
-        //   symbol: "tETH",
-        //   imageUri: ETHIcon,
-        //   resourceId:
-        //     "0x000000000000000000000067eF82C01D60FDb4D1af833Cd3bE0625cCcCe6b100",
-        // },
+        {
+          address: "0x5F12C56aD96d225f23E2eB128c4b774fdb7b6a3A",
+          name: "USDT",
+          symbol: "USDT",
+          imageUri: USDTIcon,
+          resourceId:
+            "0x0000000000000000000000b59e2a3FD2b8d057B86100791EA6BFB5fA2240c100",
+        },
+        {
+          address: "0xE9a6C80360441cEDf229F330E557112a9c3C4533",
+          name: "USDC",
+          symbol: "tUSDC",
+          imageUri: USDCIcon,
+          resourceId:
+            "0x00000000000000000000000B9742d1EE856cC64AcDC848191F458089240ABB00",
+        },
+        {
+          address: "0x878EA4D996e854c105EB470451541688f080cC42",
+          name: "SHIBA",
+          symbol: "tSHIBA",
+          imageUri: SHIBAIcon,
+          resourceId:
+            "0x00000000000000000000005ca640153CD0Bc9b89bf38132286f4aCC246ebd800",
+        },
+        {
+          address: "0x2C6711b5ef66d5228E021C543659538FaCF8C816",
+          name: "WETH",
+          symbol: "tETH",
+          imageUri: ETHIcon,
+          resourceId:
+            "0x000000000000000000000067eF82C01D60FDb4D1af833Cd3bE0625cCcCe6b100",
+        },
       ],
     },
     {

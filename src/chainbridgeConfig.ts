@@ -256,6 +256,59 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       ],
     },
     {
+      chainId: 25,
+      networkId: 250,
+      name: "Ethereum - FTM",
+      bridgeAddress: "0x42d3765949e8BaA49b0b64Eb729071e053ab8742",
+      erc20HandlerAddress: "0xf9899811A81613dFF94978E24A6E77F840D534f3",
+      rpcUrl: `https://rpc.ftm.tools/`,
+      type: "Ethereum",
+      blockExplorer: "https://ftmscan.com/",
+      nativeTokenSymbol: "FTM",
+      tokens: [
+        {
+          address: "0x10f6f2b97f3ab29583d9d38babf2994df7220c21",
+          name: "TeddyDoge",
+          symbol: "TEDDY",
+          imageUri: TokenIcon,
+          resourceId:
+            "0x000000000000000000000010f6f2b97F3aB29583D9D38BaBF2994dF7220C2100",
+        },
+        // {
+        //   address: "0x5F12C56aD96d225f23E2eB128c4b774fdb7b6a3A",
+        //   name: "USDT",
+        //   symbol: "USDT",
+        //   imageUri: USDTIcon,
+        //   resourceId:
+        //     "0x0000000000000000000000b59e2a3FD2b8d057B86100791EA6BFB5fA2240c100",
+        // },
+        // {
+        //   address: "0xE9a6C80360441cEDf229F330E557112a9c3C4533",
+        //   name: "USDC",
+        //   symbol: "tUSDC",
+        //   imageUri: USDCIcon,
+        //   resourceId:
+        //     "0x00000000000000000000000B9742d1EE856cC64AcDC848191F458089240ABB00",
+        // },
+        // {
+        //   address: "0x878EA4D996e854c105EB470451541688f080cC42",
+        //   name: "SHIBA",
+        //   symbol: "tSHIBA",
+        //   imageUri: SHIBAIcon,
+        //   resourceId:
+        //     "0x00000000000000000000005ca640153CD0Bc9b89bf38132286f4aCC246ebd800",
+        // },
+        // {
+        //   address: "0x2C6711b5ef66d5228E021C543659538FaCF8C816",
+        //   name: "WETH",
+        //   symbol: "tETH",
+        //   imageUri: ETHIcon,
+        //   resourceId:
+        //     "0x000000000000000000000067eF82C01D60FDb4D1af833Cd3bE0625cCcCe6b100",
+        // },
+      ],
+    },
+    {
       chainId: 0,
       networkId: 1,
       name: "Ethereum - ETH",

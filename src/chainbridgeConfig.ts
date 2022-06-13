@@ -309,6 +309,59 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       ],
     },
     {
+      chainId: 26,
+      networkId: 25,
+      name: "Ethereum - CRO",
+      bridgeAddress: "0xf9899811A81613dFF94978E24A6E77F840D534f3",
+      erc20HandlerAddress: "0x8f0f2ED815B660fF404cD4518ec67B1294DE8ec3",
+      rpcUrl: `https://evm.cronos.org`,
+      type: "Ethereum",
+      blockExplorer: "https://cronoscan.com/",
+      nativeTokenSymbol: "CRO",
+      tokens: [
+        {
+          address: "0x10f6f2b97f3ab29583d9d38babf2994df7220c21",
+          name: "TeddyDoge",
+          symbol: "TEDDY",
+          imageUri: TokenIcon,
+          resourceId:
+            "0x000000000000000000000010f6f2b97F3aB29583D9D38BaBF2994dF7220C2100",
+        },
+        {
+          address: "0x7DF8Afdbd06165F724304C0224075D0259f3a97b",
+          name: "USDT",
+          symbol: "USDT",
+          imageUri: USDTIcon,
+          resourceId:
+            "0x0000000000000000000000b59e2a3FD2b8d057B86100791EA6BFB5fA2240c100",
+        },
+        {
+          address: "0x93bc866D930A16f228aceB194132e64743E545a0",
+          name: "USDC",
+          symbol: "tUSDC",
+          imageUri: USDCIcon,
+          resourceId:
+            "0x00000000000000000000000B9742d1EE856cC64AcDC848191F458089240ABB00",
+        },
+        {
+          address: "0x5ACF1EEb322c3DCDD713612c72588c4f53FC218b",
+          name: "SHIBA",
+          symbol: "tSHIBA",
+          imageUri: SHIBAIcon,
+          resourceId:
+            "0x00000000000000000000005ca640153CD0Bc9b89bf38132286f4aCC246ebd800",
+        },
+        {
+          address: "0x9cf48a0b0c6127Aa5d934e92E16099C4233F4D20",
+          name: "WETH",
+          symbol: "tETH",
+          imageUri: ETHIcon,
+          resourceId:
+            "0x000000000000000000000067eF82C01D60FDb4D1af833Cd3bE0625cCcCe6b100",
+        },
+      ],
+    },
+    {
       chainId: 0,
       networkId: 1,
       name: "Ethereum - ETH",
